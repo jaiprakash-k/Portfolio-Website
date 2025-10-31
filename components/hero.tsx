@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Github, Linkedin, Mail, FileText } from "lucide-react"
 import { MouseEvent } from "react"
+import { motion } from "framer-motion"
 
 const PUBLIC_RESUME = "/Resume_2520.pdf"
 const RESUME_KEY = "jp_resume_v1"
@@ -46,71 +47,79 @@ export function Hero() {
   }
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16">
-      <div className="max-w-4xl mx-auto text-center">
+    <section id="hero" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16 relative overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="max-w-4xl mx-auto text-center"
+      >
         <div className="mb-8">
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent animate-pulse">
+          <h1 className="neon-gradient-text text-5xl sm:text-7xl lg:text-8xl font-extrabold mb-4 tracking-tight" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
             Jai Prakash
           </h1>
-          <h2 className="text-xl sm:text-2xl lg:text-3xl text-gray-300 mb-6">
-            Aspiring Web Developer | Front-End Developer
+          <h2 className="text-xl sm:text-2xl lg:text-3xl text-gray-300 mb-6" style={{ fontFamily: 'var(--font-inter)' }}>
+            Aspiring Web Developer · Front-End Developer
           </h2>
-          <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-8">
-            Passionate about building modern, user-focused web experiences.
+          <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10">
+            Building modern, user-focused web experiences with performance and polish.
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-8">
-          <Button
-            variant="outline"
-            size="lg"
-            onClick={openPublicOrStored}
-            className="bg-cyan-500/10 border-cyan-500 text-cyan-400 hover:bg-cyan-500/20 transition-all duration-300 hover:scale-105"
-          >
-            <FileText className="mr-2 h-5 w-5" />
-            View Resume
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            asChild
-            className="bg-purple-500/10 border-purple-500 text-purple-400 hover:bg-purple-500/20 transition-all duration-300 hover:scale-105"
-          >
-            <a href="https://github.com/jaiprakash-k" target="_blank" rel="noopener noreferrer">
-              <Github className="mr-2 h-5 w-5" />
-              GitHub
-            </a>
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            asChild
-            className="bg-blue-500/10 border-blue-500 text-blue-400 hover:bg-blue-500/20 transition-all duration-300 hover:scale-105"
-          >
-            <a href="https://www.linkedin.com/in/jai-prakash-k-103286355/" target="_blank" rel="noopener noreferrer">
-              <Linkedin className="mr-2 h-5 w-5" />
-              LinkedIn
-            </a>
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            asChild
-            className="bg-green-500/10 border-green-500 text-green-400 hover:bg-green-500/20 transition-all duration-300 hover:scale-105"
-          >
-            <a href="mailto:kjaiprakash000@gmail.com">
-              <Mail className="mr-2 h-5 w-5" />
-              Email
-            </a>
-          </Button>
-        </div>
+        <motion.div
+          initial="hidden"
+          animate="show"
+          variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0, transition: { staggerChildren: 0.08 } } }}
+          className="flex flex-wrap justify-center gap-4 mb-14"
+        >
+          <motion.div variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }}>
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={openPublicOrStored}
+              className="neon-button text-cyan-300 hover:text-white"
+            >
+              <FileText className="mr-2 h-5 w-5" />
+              View Resume
+            </Button>
+          </motion.div>
+          <motion.div variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }}>
+            <Button variant="outline" size="lg" asChild className="neon-button text-violet-300 hover:text-white">
+              <a href="https://github.com/jaiprakash-k" target="_blank" rel="noopener noreferrer">
+                <Github className="mr-2 h-5 w-5" />
+                GitHub
+              </a>
+            </Button>
+          </motion.div>
+          <motion.div variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }}>
+            <Button variant="outline" size="lg" asChild className="neon-button text-cyan-200 hover:text-white">
+              <a href="https://www.linkedin.com/in/jai-prakash-k-103286355/" target="_blank" rel="noopener noreferrer">
+                <Linkedin className="mr-2 h-5 w-5" />
+                LinkedIn
+              </a>
+            </Button>
+          </motion.div>
+          <motion.div variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }}>
+            <Button variant="outline" size="lg" asChild className="neon-button text-cyan-100 hover:text-white">
+              <a href="mailto:kjaiprakash000@gmail.com">
+                <Mail className="mr-2 h-5 w-5" />
+                Email
+              </a>
+            </Button>
+          </motion.div>
+        </motion.div>
 
-        <div className="animate-bounce">
-          <div className="w-6 h-10 border-2 border-cyan-400 rounded-full mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="animate-bounce"
+        >
+          <div className="w-6 h-10 border-2 border-cyan-400/70 rounded-full mx-auto">
             <div className="w-1 h-3 bg-cyan-400 rounded-full mx-auto mt-2 animate-pulse"></div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   )
 }

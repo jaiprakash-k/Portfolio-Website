@@ -1,6 +1,10 @@
+"use client"
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Github } from "lucide-react"
+import { motion } from "framer-motion"
+import TiltCard from "./tilt-card"
 
 export function Projects() {
   const projects = [
@@ -64,48 +68,50 @@ export function Projects() {
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-cyan-400">Featured Projects</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 neon-gradient-text">Featured Projects</h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.06 } } }}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {projects.map((project, index) => (
-            <Card
-              key={index}
-              className="bg-gray-800/50 border-gray-700 hover:border-cyan-400/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/10"
-            >
-              <CardHeader>
-                <CardTitle className="text-cyan-400">{project.title}</CardTitle>
-                <CardDescription className="text-gray-300">{project.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="px-2 py-1 text-xs bg-purple-500/20 text-purple-300 rounded-full border border-purple-500/30"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="flex gap-2">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      asChild
-                      className="bg-gray-700/50 border-gray-600 text-gray-300 hover:bg-gray-600/50"
-                    >
-                      <a href={project.github} target="_blank" rel="noopener noreferrer">
-                        <Github className="mr-2 h-4 w-4" />
-                        Code
-                      </a>
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            <motion.div key={index} variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0 } }}>
+              <TiltCard className="rounded-xl">
+                <Card className="glass-card border-white/10 hover:border-cyan-400/40 transition-all duration-300">
+                  <CardHeader>
+                    <CardTitle className="text-cyan-300 font-display">{project.title}</CardTitle>
+                    <CardDescription className="text-gray-300">{project.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      <div className="flex flex-wrap gap-2">
+                        {project.tech.map((tech, techIndex) => (
+                          <span
+                            key={techIndex}
+                            className="px-2 py-1 text-xs rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-200"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="flex gap-2">
+                        <Button variant="outline" size="sm" asChild className="neon-button">
+                          <a href={project.github} target="_blank" rel="noopener noreferrer">
+                            <Github className="mr-2 h-4 w-4" />
+                            Code
+                          </a>
+                        </Button>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </TiltCard>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

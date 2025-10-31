@@ -1,3 +1,7 @@
+"use client"
+
+import TiltCard from "./tilt-card"
+
 export function Experience() {
   const experiences = [
   {
@@ -28,7 +32,7 @@ export function Experience() {
           {experiences.map((exp, index) => (
             <div key={index} className="relative pl-8 border-l-2 border-cyan-400/30">
               <div className="absolute -left-2 top-0 w-4 h-4 bg-cyan-400 rounded-full"></div>
-              <div className="bg-gray-800/50 p-6 rounded-lg border border-gray-700 hover:border-cyan-400/50 transition-colors">
+              <TiltCard className="glass-card p-6 rounded-lg border border-white/10 hover:border-cyan-400/40 transition-colors">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
                   <h3 className="text-xl font-semibold text-cyan-400">{exp.title}</h3>
                   <span className="text-sm text-purple-400">{exp.period}</span>
@@ -37,7 +41,7 @@ export function Experience() {
                   {exp.company} • <span className="text-purple-300">{exp.type}</span>
                 </p>
                 <p className="text-gray-400">{exp.description}</p>
-              </div>
+              </TiltCard>
             </div>
           ))}
         </div>

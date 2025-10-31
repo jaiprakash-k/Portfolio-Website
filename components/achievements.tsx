@@ -1,3 +1,7 @@
+"use client"
+
+import TiltCard from "./tilt-card"
+
 export function Achievements() {
   const achievements = [
     {
@@ -57,9 +61,9 @@ export function Achievements() {
 
         <div className="grid md:grid-cols-2 gap-6">
           {achievements.map((achievement, index) => (
-            <div
+            <TiltCard
               key={index}
-              className="bg-gray-800/50 p-6 rounded-lg border border-gray-700 hover:border-cyan-400/50 transition-all duration-300 hover:scale-105"
+              className="glass-card p-6 rounded-lg border border-white/10 hover:border-cyan-400/40"
             >
               <div className="flex items-start justify-between mb-3">
                 <span
@@ -79,7 +83,7 @@ export function Achievements() {
               </div>
               <h3 className="text-lg font-semibold text-cyan-400 mb-2">{achievement.title}</h3>
               <p className="text-gray-300 text-sm">{achievement.description}</p>
-            </div>
+            </TiltCard>
           ))}
         </div>
       </div>

@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Mail, Github, Linkedin, MapPin, Phone, FileText } from "lucide-react"
 import { MouseEvent } from "react"
+import TiltCard from "./tilt-card"
 
 const PUBLIC_RESUME = "/Resume_2520.pdf"
 const RESUME_KEY = "jp_resume_v1"
@@ -144,22 +145,21 @@ export function Contact() {
           {contactInfo.map((contact, index) => {
             const IconComponent = contact.icon
             const content = (
-              <Card
-                key={index}
-                className="bg-gray-800/50 border-gray-700 hover:border-cyan-400/50 transition-all duration-300 hover:scale-105 h-full"
-              >
-                <CardHeader className="text-center">
-                  <div
-                    className={`mx-auto w-12 h-12 rounded-full bg-gray-700/50 flex items-center justify-center mb-3 ${contact.color}`}
-                  >
-                    <IconComponent size={24} />
-                  </div>
-                  <CardTitle className="text-lg text-gray-200">{contact.label}</CardTitle>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <p className={`text-sm ${contact.color} break-all`}>{contact.value}</p>
-                </CardContent>
-              </Card>
+              <TiltCard className="glass-card rounded-xl h-full border border-white/10 hover:border-cyan-400/40">
+                <Card className="bg-transparent border-0 h-full">
+                  <CardHeader className="text-center">
+                    <div
+                      className={`mx-auto w-12 h-12 rounded-full bg-gray-700/50 flex items-center justify-center mb-3 ${contact.color}`}
+                    >
+                      <IconComponent size={24} />
+                    </div>
+                    <CardTitle className="text-lg text-gray-200">{contact.label}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-center">
+                    <p className={`text-sm ${contact.color} break-all`}>{contact.value}</p>
+                  </CardContent>
+                </Card>
+              </TiltCard>
             )
 
             // Special handling for our resume card which uses a click handler
