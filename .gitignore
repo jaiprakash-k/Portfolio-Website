@@ -25,3 +25,19 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# netlify
+.netlify/
+
+# macOS cruft
+.DS_Store
+
+# coverage and build caches
+coverage/
+dist/
+
+# package manager lockfiles not in use
+pnpm-lock.yaml
+
+# editor files (optional)
+.vscode/
