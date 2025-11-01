@@ -1,0 +1,17 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+  
+  # Enable the official Next.js plugin for Netlify
+  
+  # Netlify auto-installs this plugin based on the config below.
+  # See: https://github.com/netlify/next-runtime
+  
+  
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[build.environment]
+  NODE_VERSION = "20"
+  # If peer deps cause issues during CI installs, you can uncomment this:
+  # NPM_FLAGS = "--legacy-peer-deps"
