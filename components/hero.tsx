@@ -59,7 +59,7 @@ export function Hero() {
             Jai Prakash
           </h1>
           <h2 className="text-xl sm:text-2xl lg:text-3xl text-gray-300 mb-6" style={{ fontFamily: 'var(--font-inter)' }}>
-            Aspiring Web Developer · Front-End Developer
+            Aspiring Web Developer · Full-Stack Developer
           </h2>
           <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10">
             Building modern, user-focused web experiences with performance and polish.
