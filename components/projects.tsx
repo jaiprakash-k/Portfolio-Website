@@ -18,7 +18,7 @@ export function Projects() {
       title: "CitySafari",
       description: "A modern, offline-first Progressive Web App (PWA) designed for Anganwadi workers to monitor child nutrition and identify malnutrition risks in rural communities.",
       tech: ["React.js", "Spring Boot", "MySQL", "REST APIs"],
-      github: "https://github.com/jaiprakash-k/city-safari",
+      github: "https://github.com/jaiprakash-k/city-safari-travel-guide.git",
     },
     {
       title: "AI Outfit Generator",
