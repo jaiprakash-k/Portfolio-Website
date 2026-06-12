@@ -73,7 +73,7 @@ const Skills = () => {
         transition={{ duration: 0.5 }}
         style={{ color: 'hsl(var(--muted-foreground))' }}
       >
-        <span style={{ color: 'hsl(var(--primary))' }}>03.</span> skills
+        <span style={{ color: 'hsl(var(--primary))' }}>03.</span> Skills
         <div className="flex-1 h-px ml-4" style={{ background: 'hsl(var(--border))' }} />
       </motion.div>
 

@@ -211,7 +211,7 @@ const Hero = () => {
               (e.currentTarget as HTMLButtonElement).style.boxShadow = 'none';
             }}
           >
-            view_projects()
+            View_projects()
           </button>
 
           <button
@@ -225,7 +225,7 @@ const Hero = () => {
               (e.currentTarget as HTMLButtonElement).style.color = 'hsl(var(--muted-foreground))';
             }}
           >
-            ./hire_me →
+            ./Hire_me →
           </button>
         </motion.div>
 

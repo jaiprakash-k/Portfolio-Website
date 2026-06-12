@@ -4,7 +4,7 @@ import { motion, useInView } from 'framer-motion';
 const stats = [
   { label: 'CGPA', value: 8.4, suffix: '', decimals: 1 },
   { label: 'Projects Built', value: 10, suffix: '+', decimals: 0 },
-  { label: 'Hackathon Recognition', value: 2, suffix: 'x', decimals: 0 },
+  { label: 'Hackathon Recognition', value: 4, suffix: 'x', decimals: 0 },
 ];
 
 const CounterStat = ({ label, value, suffix, decimals }: { label: string; value: number; suffix: string; decimals: number }) => {
@@ -118,7 +118,7 @@ const About = () => {
         transition={{ duration: 0.5 }}
         style={{ color: 'hsl(var(--muted-foreground))' }}
       >
-        <span style={{ color: 'hsl(var(--primary))' }}>01.</span> about_me
+        <span style={{ color: 'hsl(var(--primary))' }}>01.</span> About_me
         <div className="flex-1 h-px ml-4" style={{ background: 'hsl(var(--border))' }} />
       </motion.div>
 
@@ -135,7 +135,13 @@ const About = () => {
           {/* Stats row */}
           <div className="grid grid-cols-3 gap-6 mt-8 pt-8" style={{ borderTop: '1px solid hsl(var(--border))' }}>
             {stats.map((stat) => (
-              <CounterStat key={stat.label} {...stat} />
+              <CounterStat 
+                key={stat.label} 
+                label={stat.label}
+                value={stat.value}
+                suffix={stat.suffix}
+                decimals={stat.decimals}
+              />
             ))}
           </div>
         </motion.div>

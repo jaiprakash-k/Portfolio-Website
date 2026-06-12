@@ -3,23 +3,42 @@ import { motion, useInView } from 'framer-motion';
 
 const achievements = [
   {
-    rank: 'FINALIST',
-    event: 'SEISMO Hack 1.0',
-    description: 'National-level hackathon. Built under 24h pressure.',
-    color: 'hsl(var(--primary))',
-  },
-  {
-    rank: '3RD PLACE',
-    event: 'ECOHACK Ideathon',
-    description: 'Sustainability-focused ideathon with competitive field.',
-    color: 'hsl(var(--secondary))',
-  },
+  rank: '3RD PLACE',
+  event: 'QTHACK 2026',
+  description: 'Built an RF Signal Router Simulator, ranked 3rd of 571 teams (1,476 participants) at SRMIST\'s national quantum hackathon.',
+  color: 'hsl(var(--primary))',
+},
+{
+  rank: '3RD PLACE',
+  event: 'CONNECT THE DOTS 2026',
+  description: 'Designed a production-ready centralized backend routing system, placing 3rd among 380+ teams at IIT Patna\'s infrastructure challenge.',
+  color: 'hsl(var(--secondary))',
+},
+{
+  rank: 'FINALIST',
+  event: 'SEISMO HACK 1.0',
+  description: 'Built ResQlink, a zero-connectivity BLE mesh SOS platform — top team from 130+ submissions for real-world offline-comm constraints.',
+  color: 'hsl(var(--primary))',
+},
+{
+  rank: '3RD PLACE',
+  event: 'ECOHACK IDEATHON',
+  description: 'Recognized for a technology-driven sustainable development solution in a competitive national field.',
+  color: 'hsl(var(--secondary))',
+},
+{
+  rank: 'ELITE + GOLD',
+  event: 'NPTEL — JAVA',
+  description: 'Scored 96% in IIT faculty-led national certification program on Programming in Java.',
+  color: 'hsl(var(--primary))',
+},
 ];
 
 const certifications = [
-  { name: 'NPTEL Java', detail: 'Elite Gold', issuer: 'NPTEL', color: 'hsl(35, 90%, 60%)' },
-  { name: 'Full Stack Developer', detail: 'Professional Certificate', issuer: 'IBM', color: 'hsl(210, 100%, 56%)' },
-  { name: 'UX Foundations', detail: 'Google Certificate', issuer: 'Google', color: 'hsl(170, 80%, 50%)' },
+  { name: 'NPTEL Java', detail: 'Elite + Gold (96%)', issuer: 'NPTEL', color: 'hsl(35, 90%, 60%)' },
+  { name: 'Generative AI Foundations', detail: 'AWS Academy Graduate', issuer: 'AWS', color: 'hsl(28, 90%, 55%)' },
+  { name: 'Fine-tuning Language Models', detail: 'Certificate', issuer: 'Hugging Face', color: 'hsl(45, 95%, 60%)' },
+  { name: 'Full Stack Software Developer', detail: 'Professional Certificate', issuer: 'IBM', color: 'hsl(210, 100%, 56%)' },
 ];
 
 const Achievements = () => {
@@ -41,7 +60,7 @@ const Achievements = () => {
         transition={{ duration: 0.5 }}
         style={{ color: 'hsl(var(--muted-foreground))' }}
       >
-        <span style={{ color: 'hsl(var(--primary))' }}>05.</span> achievements
+        <span style={{ color: 'hsl(var(--primary))' }}>05.</span> Achievements
         <div className="flex-1 h-px ml-4" style={{ background: 'hsl(var(--border))' }} />
       </motion.div>
 
@@ -84,11 +103,11 @@ const Achievements = () => {
         transition={{ duration: 0.5, delay: 0.3 }}
         style={{ color: 'hsl(var(--muted-foreground))' }}
       >
-        <span style={{ color: 'hsl(var(--primary))' }}>06.</span> certifications
+        <span style={{ color: 'hsl(var(--primary))' }}>06.</span> Certifications
         <div className="flex-1 h-px ml-4" style={{ background: 'hsl(var(--border))' }} />
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-3xl">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-3xl">
         {certifications.map((cert, i) => (
           <motion.div
             key={i}

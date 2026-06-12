@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const navItems = [
-  { label: 'about', id: 'about' },
-  { label: 'projects', id: 'projects' },
-  { label: 'skills', id: 'skills' },
-  { label: 'experience', id: 'experience' },
-  { label: 'contact', id: 'contact' },
+  { label: 'About', id: 'About' },
+  { label: 'Projects', id: 'Projects' },
+  { label: 'Skills', id: 'Skills' },
+  { label: 'Experience', id: 'Experience' },
+  { label: 'Contact', id: 'Contact' },
 ];
 
 const Navigation = () => {
@@ -106,7 +106,7 @@ const Navigation = () => {
           (e.currentTarget as HTMLButtonElement).style.background = 'hsl(var(--primary) / 0.05)';
         }}
       >
-        ./hire
+        ./Hire
       </button>
     </motion.nav>
   );

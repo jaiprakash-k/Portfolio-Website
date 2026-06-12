@@ -5,14 +5,14 @@ const COMMANDS = {
   connect: {
     output: [
       '> Initiating connection...',
-      '> LinkedIn: linkedin.com/in/jaiprakashk',
+      '> LinkedIn: linkedin.com/in/jai-prakash-k',
       '> Status: ONLINE ✓',
     ],
   },
   hire: {
     output: [
       '> Opening recruitment channel...',
-      '> Email: jaiprakash.dev@gmail.com',
+      '> Email: kjaiprakash000@gmail.com',
       '> Available for: Full-time, Internship, Contract',
       '> Response time: < 24 hours',
     ],
@@ -21,7 +21,7 @@ const COMMANDS = {
     output: [
       '> Scanning for collaboration opportunities...',
       '> Open to: Hackathons, OSS, Side projects',
-      '> GitHub: github.com/jaiprakashk',
+      '> GitHub: github.com/jaiprakash-k',
       '> DM to align on tech stack ✓',
     ],
   },
@@ -119,7 +119,7 @@ const Contact = () => {
         transition={{ duration: 0.5 }}
         style={{ color: 'hsl(var(--muted-foreground))' }}
       >
-        <span style={{ color: 'hsl(var(--primary))' }}>07.</span> contact
+        <span style={{ color: 'hsl(var(--primary))' }}>07.</span> Contact
         <div className="flex-1 h-px ml-4" style={{ background: 'hsl(var(--border))' }} />
       </motion.div>
 
@@ -146,12 +146,15 @@ const Contact = () => {
           {/* Social links */}
           <div className="space-y-3">
             {[
-              { label: 'GitHub', handle: 'github.com/jaiprakashk', color: 'hsl(var(--foreground))' },
-              { label: 'LinkedIn', handle: 'linkedin.com/in/jaiprakashk', color: 'hsl(var(--primary))' },
-              { label: 'Email', handle: 'jaiprakash.dev@gmail.com', color: 'hsl(var(--secondary))' },
-            ].map(({ label, handle, color }) => (
-              <motion.div
+              { label: 'GitHub', handle: 'github.com/jaiprakash-k', href: 'https://github.com/jaiprakash-k', color: 'hsl(var(--foreground))' },
+              { label: 'LinkedIn', handle: 'linkedin.com/in/jaiprakash-k', href: 'https://linkedin.com/in/jaiprakash-k', color: 'hsl(var(--primary))' },
+              { label: 'Email', handle: 'kjaiprakash000@gmail.com', href: 'mailto:kjaiprakash000@gmail.com', color: 'hsl(var(--secondary))' },
+            ].map(({ label, handle, href, color }) => (
+              <motion.a
                 key={label}
+                href={href}
+                target={href.startsWith('mailto:') ? undefined : '_blank'}
+                rel={href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
                 className="flex items-center gap-4 group cursor-pointer"
                 whileHover={{ x: 4 }}
                 transition={{ duration: 0.2 }}
@@ -166,7 +169,7 @@ const Contact = () => {
                 >
                   {handle}
                 </span>
-              </motion.div>
+              </motion.a>
             ))}
           </div>
         </motion.div>

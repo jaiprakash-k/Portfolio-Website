@@ -3,7 +3,7 @@ import { motion, useInView } from 'framer-motion';
 
 const timelineEvents = [
   {
-    year: '2024',
+    year: '2025',
     title: 'Web Developer Intern',
     company: 'Amdox Technologies India',
     bullets: [
@@ -16,7 +16,7 @@ const timelineEvents = [
     colorRaw: 'hsl(210, 100%, 56%)',
   },
   {
-    year: '2023',
+    year: '2024',
     title: 'B.Tech Computer Science Engineering',
     company: 'SRM Institute of Science and Technology',
     bullets: [
@@ -131,7 +131,7 @@ const Experience = () => {
         transition={{ duration: 0.5 }}
         style={{ color: 'hsl(var(--muted-foreground))' }}
       >
-        <span style={{ color: 'hsl(var(--primary))' }}>04.</span> experience
+        <span style={{ color: 'hsl(var(--primary))' }}>04.</span> Experience
         <div className="flex-1 h-px ml-4" style={{ background: 'hsl(var(--border))' }} />
       </motion.div>
 

@@ -42,6 +42,32 @@ const projects: Project[] = [
     color: 'hsl(260, 80%, 60%)',
     accentColor: 'hsl(280, 90%, 75%)',
   },
+  {
+    id: 'rapidrx',
+    name: 'RapidRX',
+    tagline: 'Full-stack medicine delivery platform with role-based workflows',
+    description: 'A full-stack medicine delivery MVP connecting customers with verified local pharmacies — handling inventory search, cart checkout, delivery partner workflows, pharmacy management, and PDF invoice generation.',
+    problem: 'Local pharmacy ordering is fragmented across phone calls and walk-ins, with no unified system for discovery, verified inventory, or delivery coordination. RapidRX models the full lifecycle — search, order, fulfillment, delivery — across four distinct user roles.',
+    architecture: 'Next.js App Router with Server Components for read-heavy pages (direct Prisma queries) and Client Components for interactive flows (cart, checkout, dashboards). All mutations route through /api handlers backed by Prisma → PostgreSQL, with NextAuth JWTs encoding a role field checked on every protected route.',
+    highlights: ['Role-based auth (4 roles)', 'Geolocation pharmacy search', 'Server-side PDF invoices', 'Real-time order tracking'],
+    stack: ['Next.js', 'React', 'TypeScript', 'PostgreSQL', 'Prisma', 'Tailwind CSS'],
+    challenges: 'Implementing geolocation-aware pharmacy search using a Haversine-formula SQL query via Prisma raw queries — calculating great-circle distance to verified pharmacies, filtering by radius, and sorting by proximity, all while enforcing verification status at the database level.',
+    color: 'hsl(145, 70%, 50%)',
+    accentColor: 'hsl(155, 85%, 65%)',
+  },
+  {
+    id: 'locallit',
+    name: 'LocalLit',
+    tagline: 'Real-time local book marketplace and exchange platform',
+    description: 'A full-stack platform for discovering, buying, selling, and exchanging books within a local community — powered by real-time chat, direct book-for-book trade proposals, and a complete order management flow.',
+    problem: 'Secondhand book trading is scattered across informal groups with no trust layer, structured listings, or direct communication. LocalLit unifies marketplace browsing, real-time negotiation, and exchange proposals into one platform.',
+    architecture: 'React + Vite SPA communicating with an Express REST API over Axios, backed by Sequelize/MySQL. Socket.io provides bidirectional real-time chat (join_chat, send_message, typing indicators) layered alongside the stateless JWT-authenticated REST flow for listings, orders, and exchanges.',
+    highlights: ['Real-time chat via Socket.io', 'Book-for-book exchange flow', 'JWT auth with bcrypt hashing', 'Reviews & seller ratings'],
+    stack: ['React', 'Node.js', 'Express', 'MySQL', 'Sequelize', 'Socket.io'],
+    challenges: 'Designing the exchange system as a first-class flow alongside purchases — proposing, accepting, and tracking book-for-book trades required a separate data model and state machine running in parallel with the standard order pipeline, while keeping chat and exchange context in sync in real time.',
+    color: 'hsl(28, 90%, 58%)',
+    accentColor: 'hsl(40, 95%, 70%)',
+  },
 ];
 
 const TechPill = ({ tech, color }: { tech: string; color: string }) => (
@@ -252,7 +278,7 @@ const Projects = () => {
         transition={{ duration: 0.5 }}
         style={{ color: 'hsl(var(--muted-foreground))' }}
       >
-        <span style={{ color: 'hsl(var(--primary))' }}>02.</span> projects
+        <span style={{ color: 'hsl(var(--primary))' }}>02.</span> Projects
         <div className="flex-1 h-px ml-4" style={{ background: 'hsl(var(--border))' }} />
       </motion.div>
 
